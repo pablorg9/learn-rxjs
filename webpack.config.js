@@ -5,9 +5,11 @@ const package = require('./package.json');
 module.exports = {
   entry: {
       vendor: Object.keys(package.dependencies),
-      basicObservable:'./src/observable/basic-observable.ts',
-      renderUtil:'./src/observable/render.ts',
-      runner:'./src/observable/index.ts'
+      basicOperators:'./src/basic-operators/basic-operators.ts',
+      indexOperators:'./src/basic-operators/index.ts',
+      indexObservable:'./src/basic-observable/index.ts',
+      basicObservable:'./src/basic-observable/basic-observable.ts',
+      renderUtil:'./src/common/render.ts'
     },
   devtool: 'inline-source-map',
   module: {
@@ -38,9 +40,17 @@ module.exports = {
         hash: true,
         title: 'Observable',
         myPageHeader: 'Observable example',
-        template: './src/observable/index.html',
-        chunks: ['vendor','basicObservable','renderUtil','runner'],
-        filename: './dist/observable.html' 
+        template: './src/basic-observable/index.html',
+        chunks: ['vendor','basicObservable','renderUtil','indexObservable'],
+        filename: './dist/basic-observable.html' 
+    }),
+    new HtmlWebpackPlugin({
+        hash: true,
+        title: 'Basic operators',
+        myPageHeader: 'Basic operators',
+        template: './src/basic-operators/index.html',
+        chunks: ['vendor','basicOperators','renderUtil','indexOperators'],
+        filename: './dist/basic-operators.html' 
     })
 ]
 };

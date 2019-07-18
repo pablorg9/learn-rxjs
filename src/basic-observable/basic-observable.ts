@@ -1,5 +1,5 @@
 import { Observable, from, of, range, interval, timer, fromEvent } from 'rxjs';
-import { render } from './render';
+import { render } from '../common/render';
 
 const observableCreate = () => {
     //Funcion create
@@ -90,5 +90,5 @@ export default () => {
     // observableFrom();
     // observableOf();
     // observableInterval();
-    // observableFromEvent();
+    observableFromEvent();
 }
